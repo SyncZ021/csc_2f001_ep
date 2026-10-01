@@ -1,6 +1,9 @@
 #include <stdio.h>
 
 int main(void) {
-    printf("Hello World!!!\n");
+    float tab[]={1, 3, 5, 7, 0};
+    for (int i=0; i<5; i++){
+        printf(tab[i])
+    }
     return 0;
 }
