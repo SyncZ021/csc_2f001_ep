@@ -9,15 +9,25 @@ int sort_get_index(float tab[], int top, float val){
     return top;
 }
 
+void sort_insert_at(float tab[], int i, int top, float val){
+    for (int j=top; j>i; j--){
+        tab[j]=tab[j-1];
+    }
+    tab[i]=val;
+}
+
 int main(void) {
     float tab[5]={1, 3, 5, 7, 0};
-    for (int i=0; i<5; i++){
-        printf("%f\n", tab[i]);
-    }
     int sort1=sort_get_index(tab, 4, 0);
     int sort2=sort_get_index(tab, 4, 3.5);
     int sort3=sort_get_index(tab, 4, 10);
     printf("Insert %d at %d, %.1f at %d, %d at %d\n", 0, sort1, 3.5, sort2, 10, sort3);
+    sort_insert_at(tab, sort2, 4, 3.5);
+    for (int i=0; i<5; i++){
+        printf("%f\n", tab[i]);
+    }
     return 0;
 }
+
+
 
