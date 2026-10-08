@@ -21,13 +21,19 @@ void sort_insert(float tab[], int top, float val){
     sort_insert_at(tab, index, top, val);
 }
 
+int nb_columns(){
+    return 32;
+}
+
+int nb_lines(){
+    return 16;
+}
+
 int main(void) {
     float tab[5]={1, 3, 5, 7, 0};
-    int sort1=sort_get_index(tab, 4, 0);
-    int sort2=sort_get_index(tab, 4, 3.5);
-    int sort3=sort_get_index(tab, 4, 10);
-    printf("Insert %d at %d, %.1f at %d, %d at %d\n", 0, sort1, 3.5, sort2, 10, sort3);
-    sort_insert(tab, 4, 2);
+    int cols=nb_columns();
+    int lines=nb_lines();
+    printf("Columns: %d; Lines: %d\n", cols, lines);
     for (int i=0; i<5; i++){
         printf("%f\n", tab[i]);
     }
