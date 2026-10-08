@@ -49,17 +49,22 @@ void grid_display(char* grid){
     }
 }
 
+void plot_point(char* grid, int x, int y, char pixel){
+    int cols3=nb_columns();
+    int lines3=nb_lines(); 
+    int row=lines3-y-1;
+    int col=x;
+    grid[row*cols3+col]=pixel;
+}
+
 int main(void) {
-    float tab[5]={1, 3, 5, 7, 0};
     int cols=nb_columns();
     int lines=nb_lines();
     int chars=cols*lines;
     char grid[chars];
     grid_init(grid, '*');
+    plot_point(grid, 3, 1, ' ');
     grid_display(grid);
-    for (int i=0; i<5; i++){
-        printf("%f\n", tab[i]);
-    }
     return 0;
 }
 
