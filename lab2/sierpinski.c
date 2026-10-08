@@ -29,13 +29,22 @@ int nb_lines(){
     return 16;
 }
 
+void grid_init(char* grid, char pixel){
+    int cols1=nb_columns();
+    int lines1=nb_lines();
+    int chars1=cols1*lines1;
+    for (int i=0; i<chars1; i++){
+        grid[i]=pixel;
+    }
+}
+
 int main(void) {
     float tab[5]={1, 3, 5, 7, 0};
     int cols=nb_columns();
     int lines=nb_lines();
     int chars=cols*lines;
     char grid[chars];
-    grid[0]='*';
+    grid_init(grid, '*');
     printf("%c\n", grid[0]);
     for (int i=0; i<5; i++){
         printf("%f\n", tab[i]);
