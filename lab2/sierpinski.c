@@ -33,7 +33,10 @@ int main(void) {
     float tab[5]={1, 3, 5, 7, 0};
     int cols=nb_columns();
     int lines=nb_lines();
-    printf("Columns: %d; Lines: %d\n", cols, lines);
+    int chars=cols*lines;
+    char grid[chars];
+    grid[0]='*';
+    printf("%c\n", grid[0]);
     for (int i=0; i<5; i++){
         printf("%f\n", tab[i]);
     }
