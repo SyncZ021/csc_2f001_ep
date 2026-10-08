@@ -38,6 +38,17 @@ void grid_init(char* grid, char pixel){
     }
 }
 
+void grid_display(char* grid){
+    int cols2=nb_columns();
+    int lines2=nb_lines();
+    for (int i=0; i<lines2; i++){
+        for (int j=0; j<cols2; j++){
+            printf("%c", grid[i*cols2+j]);
+        }
+        printf("\n");
+    }
+}
+
 int main(void) {
     float tab[5]={1, 3, 5, 7, 0};
     int cols=nb_columns();
@@ -45,7 +56,7 @@ int main(void) {
     int chars=cols*lines;
     char grid[chars];
     grid_init(grid, '*');
-    printf("%c\n", grid[0]);
+    grid_display(grid);
     for (int i=0; i<5; i++){
         printf("%f\n", tab[i]);
     }
