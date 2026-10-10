@@ -80,9 +80,18 @@ struct point{
 
 void plot_poly_sweep(char* grid, struct point points[], int n, int x, char pixel){
     printf("sweep %d: ", x);
-    printf("(%d, %d)", n-1, 0);
-    for (int i=0; i<n-1; i++){
-        printf("(%d, %d)", i, i+1);
+    int j=n-1;
+    int i=0;
+    if ((points[i].x<=x && x<=points[j].x) || (points[j].x<=x && x<=points[i].x)){
+        float y=points[i].y+(x-points[i].x)*(points[j].y-points[i].y)/(points[j].x-points[i].x);
+        printf("%f  ", y);
+    }
+    for (j=0; j<n-1; j++){
+        i=j+1;
+        if ((points[i].x<=x && x<=points[j].x) || (points[j].x<=x && x<=points[i].x)){
+            float y=points[i].y+(x-points[i].x)*(points[j].y-points[i].y)/(points[j].x-points[i].x);
+            printf("%f  ", y); 
+        }
     }
     printf("\n");
 }
