@@ -101,6 +101,9 @@ void plot_poly_sweep(char* grid, struct point points[], int n, int x, char pixel
         printf("%f  ", vlines[k]);
     }
     printf("\n");
+    for (int m=0; m<top-1; m+=2){
+        plot_vline(grid, x, vlines[m], vlines[m+1], pixel);
+    }
 }
 
 void plot_poly(char* grid, struct point points[], int n, char pixel){
