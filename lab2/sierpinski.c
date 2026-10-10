@@ -83,17 +83,31 @@ void plot_poly_sweep(char* grid, struct point points[], int n, int x, char pixel
     int top=0;
     int j=n-1;
     int i=0;
-    if ((points[i].x<=x && x<=points[j].x) || (points[j].x<=x && x<=points[i].x)){
+    if (points[i].x<=x && x<points[j].x){
         float y=points[i].y+(x-points[i].x)*(points[j].y-points[i].y)/(points[j].x-points[i].x);
         sort_insert(vlines, top, y);
-        top+=1;
+        top+=1;        
+    }
+    else{
+        if (points[j].x<=x && x<points[i].x){
+            float y=points[i].y+(x-points[i].x)*(points[j].y-points[i].y)/(points[j].x-points[i].x);
+            sort_insert(vlines, top, y);
+            top+=1;  
+        }
     }
     for (j=0; j<n-1; j++){
         i=j+1;
-        if ((points[i].x<=x && x<=points[j].x) || (points[j].x<=x && x<=points[i].x)){
+        if (points[i].x<=x && x<points[j].x){
             float y=points[i].y+(x-points[i].x)*(points[j].y-points[i].y)/(points[j].x-points[i].x);
             sort_insert(vlines, top, y);
-            top+=1;
+            top+=1;        
+        }
+        else{
+            if (points[j].x<=x && x<points[i].x){
+                float y=points[i].y+(x-points[i].x)*(points[j].y-points[i].y)/(points[j].x-points[i].x);
+                sort_insert(vlines, top, y);
+                top+=1;  
+            }
         }
     }
     printf("sweep %d: ", x);
