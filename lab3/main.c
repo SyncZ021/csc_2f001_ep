@@ -1,22 +1,20 @@
 #include <stdio.h>
 #include "monster.h"
 #include <stdlib.h>
+#include "army.h"
 
 int main(){
-    int num_monsters=10;
-    // monster: array of pointers(**)
-    struct monster** monsters=malloc(num_monsters*sizeof(struct monster));
-    for (int i=0; i<num_monsters; i++){
+    struct army* pokemon=create_army();
+    for (int i=0; i<10; i++){
         char temp_arr[10];
         snprintf(temp_arr, 10, "Pikachu-%d", i);
-        monsters[i]=create_monster(temp_arr, 100);
+        struct monster* m=create_monster(temp_arr, 100);
+        add_monster_to_army(pokemon, m);
     }
-    for (int i=0; i<num_monsters; i++){
-        display_monster(monsters[i]);
+    display_army(pokemon);
+    for (int i=0; i<pokemon->top; i++){
+        delete_monster(pokemon->monsters[i]);
     }
-    for (int i=0; i<num_monsters; i++){
-        delete_monster(monsters[i]);
-    }
-    free(monsters);
+    delete_army(pokemon);
     return 0;
 }

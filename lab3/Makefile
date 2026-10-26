@@ -9,10 +9,10 @@ BIN=army-pokemon
 
 all: $(BIN)
 
-army-pokemon: main.o monster.o 
+army-pokemon: main.o monster.o army-pokemon.o # corresponding to all .c files 
 	gcc $(LDFLAGS) -o $@ $^ $(LIBS)
 
-%.o: %.c monster.h
+%.o: %.c monster.h macro.h army.h # .o files have to be recompiled when .h is modified
 	gcc $(CFLAGS) -o $@ -c $<
 
 clean:
