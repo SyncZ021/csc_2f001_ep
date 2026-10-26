@@ -1,9 +1,20 @@
 #include <stdio.h>
 #include "monster.h"
+#include <stdlib.h>
 
 int main(){
-    struct monster* pik=create_monster("Pikachu", 100);
-    display_monster(pik);
-    delete_monster(pik);
+    int num_monsters=10;
+    // monster: array of pointers(**)
+    struct monster** monsters=malloc(num_monsters*sizeof(struct monster));
+    for (int i=0; i<num_monsters; i++){
+        monsters[i]=create_monster("Pikachu", 100);
+    }
+    for (int i=0; i<num_monsters; i++){
+        display_monster(monsters[i]);
+    }
+    for (int i=0; i<num_monsters; i++){
+        delete_monster(monsters[i]);
+    }
+    free(monsters);
     return 0;
 }
