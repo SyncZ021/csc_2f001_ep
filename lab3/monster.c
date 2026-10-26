@@ -5,8 +5,7 @@
 
 struct monster* create_monster(char* name, int hp){
     struct monster* m=malloc(sizeof(*m));
-    m->name=malloc(strlen(name)+1);
-    strcpy(m->name, name);
+    strncpy(m->name, name, 256);
     m->hp=hp;
     return m;
 }
@@ -16,6 +15,5 @@ void display_monster(struct monster* m){
 }
 
 void delete_monster(struct monster* m){
-    free(m->name);
     free(m);
 }

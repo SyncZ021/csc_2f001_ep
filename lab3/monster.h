@@ -2,7 +2,7 @@
 #define MONSTER_H
 
 struct monster{
-    char* name;
+    char name[256];
     int hp;
 };
 
