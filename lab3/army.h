@@ -7,6 +7,7 @@ struct army{
     struct monster** monsters;
     int top;
     int capacity;
+    int stars;
 };
 
 struct army* create_army();

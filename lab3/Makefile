@@ -5,11 +5,11 @@
 LDFLAGS=
 LIBS=
 CFLAGS=-Wall -Werror -g
-BIN=army-pokemon
+BIN=army-pokemon army-zombie # add army-zombie
 
 all: $(BIN)
 
-army-pokemon: main.o monster.o army-pokemon.o # corresponding to all .c files 
+army-%: main.o monster.o army-%.o # corresponding to all .c files 
 	gcc $(LDFLAGS) -o $@ $^ $(LIBS)
 
 %.o: %.c monster.h macro.h army.h # .o files have to be recompiled when .h is modified
