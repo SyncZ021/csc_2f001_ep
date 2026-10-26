@@ -1,8 +1,9 @@
 #ifndef MONSTER_H
 #define MONSTER_H
+#include "macro.h"
 
 struct monster{
-    char name[256];
+    char name[NAME_SIZE];
     int hp;
 };
 
