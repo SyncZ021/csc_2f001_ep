@@ -2,11 +2,19 @@
 #include <stdlib.h>
 #include "army.h"
 
+struct army{
+    struct monster** monsters;
+    int top;
+    int capacity;
+    int stars;
+}
+
 struct army* create_army(){
     struct army* a=malloc(sizeof(*a));
     a->monsters=NULL;
     a->top=0;
     a->capacity=0;
+    a->stars=0;
     return a;
 }
 
@@ -33,6 +41,7 @@ void display_army(struct army* a){
     for (int i=0; i<a->top; i++){
         display_monster(a->monsters[i]);
     }
+    printf("This is a %d stars army\n", a->stars);
 }
 
 void delete_army(struct army* a){

@@ -3,12 +3,7 @@
 
 #include "monster.h"
 
-struct army{
-    struct monster** monsters;
-    int top;
-    int capacity;
-    int stars;
-};
+struct army;
 
 struct army* create_army();
 void add_monster_to_army(struct army* a, struct monster* m);
