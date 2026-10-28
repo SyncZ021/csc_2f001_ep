@@ -9,10 +9,10 @@ BIN=bilbao
 
 all: $(BIN)
 
-bilbao: main.o
+bilbao: main.o location.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-%.o: %.cpp
+%.o: %.cpp locaton.h
 	g++ $(CFLAGS) -o $@ -c $<
 
 clean:
