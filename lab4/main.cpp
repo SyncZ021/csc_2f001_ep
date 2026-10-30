@@ -45,6 +45,8 @@ int main(){
     sansebastian.set_neighbors(new location_t*[] { &bayonne, &pampelune, &bilbao, nullptr });
     pampelune.set_neighbors(new location_t*[] { &bilbao, &sansebastian, &pau, nullptr });
     bilbao.set_neighbors(new location_t*[] { &sansebastian, &pampelune, nullptr });
-    
+
+    double PtoP=palaiseau.distance_to(&paris);
+    std::cout << PtoP << std::endl;
     return 0;
 }

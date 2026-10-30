@@ -22,3 +22,13 @@ void location_t::set_neighbors(location_t* list[]){
     }
 }
 
+double location_t::distance_to(location_t* to){
+    double R=6378.0;
+    double lat1=this->latitude;
+    double long1=this->longitude;
+    double lat2=to->latitude;
+    double long2=to->longitude;
+    double distance=R * (std::numbers::pi/2 - std::asin(std::sin(lat2) * std::sin(lat1) + std::cos(long2 - long1) * std::cos(lat2) * std::cos(lat1)));
+    return distance;
+}
+
