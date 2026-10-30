@@ -19,6 +19,7 @@ struct shortest_path_t{
     location_t* from;
     location_t* to;
     shortest_path_t(location_t* from, location_t* to);
+    ~shortest_path_t();
     void compute();
     void display();
 };

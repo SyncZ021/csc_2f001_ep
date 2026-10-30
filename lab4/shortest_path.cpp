@@ -99,3 +99,12 @@ void shortest_path_t::display(){
         std::cout << "  * " << path[i]->location->name << " at " << path[i]->from_origin << " km from " << from->name << std::endl;
     }
 }
+
+shortest_path_t::~shortest_path_t(){
+    node_t* current=head;
+    while (current!=nullptr){
+        node_t* next_node=current->next;
+        delete current;
+        current=next_node;
+    }
+}
