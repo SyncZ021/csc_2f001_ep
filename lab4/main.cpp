@@ -1,5 +1,6 @@
 #include <iostream>
 #include "location.h"
+#include "shortest_path.h"
 
 int main(){
     location_t palaiseau { "Palaiseau", 0.850219, 0.0386527 };
@@ -48,5 +49,13 @@ int main(){
 
     double PtoP=palaiseau.distance_to(&paris);
     std::cout << PtoP << std::endl;
+
+    shortest_path_t path_palaiseau_bilbao(&palaiseau, &bilbao);
+    path_palaiseau_bilbao.compute();
+    path_palaiseau_bilbao.display();
+    shortest_path_t path_bilbao_palaiseau(&bilbao, &palaiseau);
+    path_bilbao_palaiseau.compute();
+    path_bilbao_palaiseau.display();
+
     return 0;
 }
