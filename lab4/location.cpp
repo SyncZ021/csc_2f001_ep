@@ -1,11 +1,20 @@
 #include "location.h"
 
-location_t::location_t(const std::string name, double lat, double long)
-    : name{name}, 
-    lat{lat}, 
-    long{long}
+location_t::location_t(const std::string name, double latitude, double longitude)
+  : name{name}, 
+    latitude{latitude}, 
+    longitude{longitude}, 
     neighbors{NULL}, 
-    nb_neighbors{0}{
+    nb_neighbors{0}
+{
         
+}
+
+void location_t::set_neighbors(location_t* list[]){
+    neighbors=list;
+    nb_neighbors=0;
+    while (neighbors[nb_neighbors]!=nullptr){
+        nb_neighbors+=1;
     }
+}
 

@@ -12,7 +12,7 @@ all: $(BIN)
 bilbao: main.o location.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-%.o: %.cpp locaton.h
+%.o: %.cpp location.h
 	g++ $(CFLAGS) -o $@ -c $<
 
 clean:
