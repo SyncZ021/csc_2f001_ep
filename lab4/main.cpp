@@ -56,6 +56,11 @@ int main(){
     shortest_path_t path_bilbao_palaiseau(&bilbao, &palaiseau);
     path_bilbao_palaiseau.compute();
     path_bilbao_palaiseau.display();
-
+    shortest_path_t path_strasbourg_bordeaux(&strasbourg, &bordeaux);
+    path_strasbourg_bordeaux.compute();
+    path_strasbourg_bordeaux.display();
+    shortest_path_t path_tours_reims(&tours, &reims);
+    path_tours_reims.compute();
+    path_tours_reims.display();
     return 0;
 }
