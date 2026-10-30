@@ -10,6 +10,10 @@ location_t::location_t(const std::string name, double latitude, double longitude
         
 }
 
+location_t::~location_t(){
+    delete[] neighbors;
+}
+
 void location_t::set_neighbors(location_t* list[]){
     neighbors=list;
     nb_neighbors=0;

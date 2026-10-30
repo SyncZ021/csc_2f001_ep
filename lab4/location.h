@@ -10,6 +10,7 @@ struct location_t{
     location_t** neighbors;
     size_t nb_neighbors;
     location_t(const std::string name, double latitude, double longitude);
+    ~location_t();
     void set_neighbors(location_t* list[]);
 };
 
