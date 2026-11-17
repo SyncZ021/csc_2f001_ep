@@ -5,14 +5,14 @@
 LDFLAGS=
 LIBS=
 CFLAGS=-Wall -Werror -g -std=c++20
-BIN=bilbao
+BIN=ast
 
 all: $(BIN)
 
-bilbao: main.o location.o shortest_path.o
+ast: main.o node.o integer.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-%.o: %.cpp location.h shortest_path.h
+%.o: %.cpp node.h integer.h
 	g++ $(CFLAGS) -o $@ -c $<
 
 clean:
