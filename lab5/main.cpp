@@ -3,6 +3,8 @@
 #include <iostream>
 #include "list.h"
 #include "add.h"
+#include "frame.h"
+#include "symbol.h"
 
 int main(){
     node_t* ast1 = new integer_t { 3 };
@@ -24,5 +26,12 @@ int main(){
 
     std::cout << ast->to_string() << " => " << ast->eval()->to_string() << std::endl;
     // should output (<+> (<+> 1 2) 3)
+    frame_t* frame = new frame_t;
+
+    frame->set(new symbol_t { "a" }, new integer_t { 666 });
+    frame->set(new symbol_t { "b" }, new integer_t { 21 });
+    frame->set(new symbol_t { "a" }, new integer_t { 42 });
+
+    std::cout << frame->to_string() << ": a=" << frame->get(new symbol_t { "a" })->to_string() << std::endl;
     return 0;
 }
