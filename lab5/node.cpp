@@ -2,8 +2,8 @@
 #include <iostream>
 
 void error(std::string str) {
-  std::cout << "Error: " << str << std::endl;
-  exit(1);
+    std::cout << "Error: " << str << std::endl;
+    exit(1);
 }
 
 node_t* node_t::eval(){
@@ -20,4 +20,8 @@ std::string node_t::to_string(){
 
 list_t* node_t::as_list(){
     error("node is not a list.");
+}
+
+uintptr_t node_t::int_value(){
+    error("node is not an integer.");
 }

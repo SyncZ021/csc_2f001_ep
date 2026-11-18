@@ -5,6 +5,7 @@
 
 struct add_t: keyword_t{
     add_t();
+    node_t* apply(list_t* list);
 };
 
 #endif
