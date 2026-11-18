@@ -9,10 +9,10 @@ BIN=ast
 
 all: $(BIN)
 
-ast: main.o node.o integer.o list.o keyword.o add.o symbol.o frame.o
+ast: main.o node.o integer.o list.o keyword.o add.o symbol.o frame.o set.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-%.o: %.cpp node.h integer.h list.h keyword.h add.h symbol.h frame.h
+%.o: %.cpp node.h integer.h list.h keyword.h add.h symbol.h frame.h set.h
 	g++ $(CFLAGS) -o $@ -c $<
 
 clean:
