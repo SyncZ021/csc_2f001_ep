@@ -25,3 +25,7 @@ list_t* node_t::as_list(){
 uintptr_t node_t::int_value(){
     error("node is not an integer.");
 }
+
+bool node_t::is(std::string id){
+    return false;
+}

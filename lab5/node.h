@@ -12,6 +12,7 @@ struct node_t{
     virtual std::string to_string();
     virtual list_t* as_list();
     virtual uintptr_t int_value();
+    virtual bool is(std::string id);
 };
 
 void error(std::string str) __attribute__((noreturn));
