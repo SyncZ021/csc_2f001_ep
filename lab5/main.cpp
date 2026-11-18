@@ -33,5 +33,21 @@ int main(){
     frame->set(new symbol_t { "a" }, new integer_t { 42 });
 
     std::cout << frame->to_string() << ": a=" << frame->get(new symbol_t { "a" })->to_string() << std::endl;
-    return 0;
+    node_t* add1 = new add_t;
+    symbol_t* a = new symbol_t { "a" };
+    frame_t* frame1 = new frame_t;
+
+    frame1->set(a, new integer_t { 37 });
+
+    list_t* ast3 = new list_t;
+
+    ast3->append(add1);
+    ast3->append(new list_t);
+    ast3->at(1)->as_list()->append(add1);
+    ast3->at(1)->as_list()->append(a);
+    ast3->at(1)->as_list()->append(new integer_t { 2 });
+    ast3->append(new integer_t { 3 });
+
+    std::cout << ast3->to_string() << " => " << ast3->eval(frame1)->to_string() << std::endl;
+        return 0;
 }
