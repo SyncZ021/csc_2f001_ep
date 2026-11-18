@@ -6,11 +6,11 @@ void error(std::string str) {
     exit(1);
 }
 
-node_t* node_t::eval(){
+node_t* node_t::eval(frame_t* frame){
     return this;
 }
 
-node_t* node_t::apply(list_t* list){
+node_t* node_t::apply(list_t* list, frame_t* frame){
     error("node is an integer or a list.");
 }
 

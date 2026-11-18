@@ -9,10 +9,10 @@ add_t::add_t()
     
 }
 
-node_t* add_t::apply(list_t* list){
+node_t* add_t::apply(list_t* list, frame_t* frame){
     uintptr_t sum=0;
     for (size_t i=1; i<list->size(); i++){
-        node_t* value=list->at(i)->eval(); // list is a pointer so at() must be used
+        node_t* value=list->at(i)->eval(frame); // list is a pointer so at() must be used
         uintptr_t v=value->int_value(); // same for value
         sum+=v;
     }

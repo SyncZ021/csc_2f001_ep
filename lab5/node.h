@@ -5,10 +5,11 @@
 #include <cstdint>
 
 struct list_t;
+struct frame_t;
 
 struct node_t{
-    virtual node_t* eval();
-    virtual node_t* apply(list_t* list);
+    virtual node_t* eval(frame_t* frame);
+    virtual node_t* apply(list_t* list, frame_t* frame);
     virtual std::string to_string();
     virtual list_t* as_list();
     virtual uintptr_t int_value();

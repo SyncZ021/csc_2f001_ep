@@ -7,8 +7,9 @@
 #include "symbol.h"
 
 int main(){
+    frame_t* frame = new frame_t;
     node_t* ast1 = new integer_t { 3 };
-    std::cout << ast1->to_string() << " => " << ast1->eval()->to_string() << std::endl;
+    std::cout << ast1->to_string() << " => " << ast1->eval(frame)->to_string() << std::endl;
     list_t* ast2 = new list_t;
     ast2->append(new integer_t { 1 });
     ast2->append(new integer_t { 2 });
@@ -24,9 +25,8 @@ int main(){
     ast->at(1)->as_list()->append(new integer_t { 2 });
     ast->append(new integer_t { 3 });
 
-    std::cout << ast->to_string() << " => " << ast->eval()->to_string() << std::endl;
+    std::cout << ast->to_string() << " => " << ast->eval(frame)->to_string() << std::endl;
     // should output (<+> (<+> 1 2) 3)
-    frame_t* frame = new frame_t;
 
     frame->set(new symbol_t { "a" }, new integer_t { 666 });
     frame->set(new symbol_t { "b" }, new integer_t { 21 });

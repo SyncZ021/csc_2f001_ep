@@ -4,6 +4,8 @@
 #include "node.h"
 #include <string>
 
+struct frame_t;
+
 struct list_t: node_t{
     node_t** elements;
     size_t nb_elements;
@@ -15,7 +17,7 @@ struct list_t: node_t{
     void set_at(size_t i, node_t* value);
     void append(node_t* value);
     std::string to_string();
-    node_t* eval();
+    node_t* eval(frame_t* frame);
 };
 
 #endif
