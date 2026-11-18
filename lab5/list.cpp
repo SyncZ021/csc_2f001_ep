@@ -55,3 +55,9 @@ std::string list_t::to_string(){
     res+=")";
     return res;
 }
+
+node_t* list_t::eval(){
+    node_t* first=elements[0]->eval();
+    node_t* res=first->apply(this);
+    return res;
+}
